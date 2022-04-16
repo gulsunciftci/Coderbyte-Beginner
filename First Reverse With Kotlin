@@ -8,7 +8,7 @@ fun FirstReverse(str: String): String {
     reverseString +=str[i]
     i--
   }
-  return reverseString;
+  return reverseString
   
 }
 
