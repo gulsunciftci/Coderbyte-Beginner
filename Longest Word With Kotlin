@@ -1,0 +1,28 @@
+fun LongestWord(sen: String): String {
+    var pos = 0
+    var buildingword = ""
+    var longestWord = ""
+    while(pos < sen.length ){
+        if(sen[pos] in 'a'..'z' || sen[pos] in 'A'..'Z' || sen[pos].isDigit()){
+            buildingword += sen[pos]
+            if (pos +1 == sen.length){
+                if (buildingword.length > longestWord.length){
+                    longestWord = buildingword
+                }
+            }
+        }
+        else{
+            if(buildingword.length > longestWord.length){
+                longestWord = buildingword
+                buildingword = ""
+            }else if(buildingword.length <= longestWord.length){
+                buildingword = ""
+            }
+        }
+        pos++
+    }
+    return longestWord
+}
+fun main() {
+  println(LongestWord(readLine()))
+}
