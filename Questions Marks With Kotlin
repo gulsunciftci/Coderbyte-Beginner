@@ -1,0 +1,28 @@
+fun QuestionsMarks(str: String): String {
+  var lastDigit=-1
+  var count=0
+  var result="false" 
+  var j=0 
+  for(char in str){
+   if(char.isDigit()){
+      val digit=Integer.valueOf(char.toString())
+      val sum=digit+lastDigit
+      lastDigit=digit
+      if(sum!=10){
+        count=0
+        continue }
+      if(count==3){
+          result="true" }
+      else{
+          result="false"
+          j++}
+      count=0 }
+      else if(char =='?'){
+       count++ }}
+  if(j>0){
+    result="false" }
+  return result
+}
+fun main() {
+  println(QuestionsMarks(readLine()))
+}
