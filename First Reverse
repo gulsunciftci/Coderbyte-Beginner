@@ -1,3 +1,5 @@
+``` 
+
 fun FirstReverse(str: String): String {
 
   // code goes here  
@@ -14,3 +16,4 @@ fun FirstReverse(str: String): String {
 fun main() {
   println(FirstReverse(readLine()))
 }
+```
