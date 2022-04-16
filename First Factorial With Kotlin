@@ -1,0 +1,12 @@
+fun FirstFactorial(num: Int): Int {
+
+  // code goes here 
+  var fact=1
+  for(i in 1..num){
+    fact=fact*i
+  }
+  return fact
+}
+fun main() {
+  println(FirstFactorial(readLine()))
+}
