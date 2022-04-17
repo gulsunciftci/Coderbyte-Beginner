@@ -1,0 +1,33 @@
+fun FindIntersection(strArr: Array<String>): String {
+
+  val firstArrayStr = strArr[0]
+  val secondArrayStr = strArr[1]
+  val arr1 = firstArrayStr.split(", ").map { it.toInt() }
+  val arr2 = secondArrayStr.split(", ").map { it.toInt() }
+  var i = 0
+  var j = 0
+  var res:MutableList<Int> = ArrayList()
+
+  while(i < arr1.size && j < arr2.size) {
+    if (arr1[i] == arr2[j]) {
+      res.add(arr1[i])
+      i++
+      j++
+      continue
+    }
+    if (arr1[i] < arr2[j]) {
+      i++
+      continue
+    }
+    j++
+  }
+
+  if (res.isEmpty()) {
+    return "false"
+  }
+  return res.toString().replace("[","").replace("]","")
+}
+
+fun main() {
+  println(FindIntersection(readLine()))
+}
