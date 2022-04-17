@@ -1,0 +1,31 @@
+fun BracketMatcher(str: String): String {
+
+  var countic=0
+  var countdis=0
+  var pos=0
+  while(pos<str.length){
+   for(char in str){
+    if(char =='('){
+      countic++
+      pos++
+      continue
+    }
+    else if(char==')'){
+      if(countic-countdis==1){
+      countdis++
+      pos++
+      continue
+      }
+    }
+    pos++
+  }}
+  if(countdis==countic){
+    return "1"
+  }
+  else{
+    return "0"
+  }
+}
+fun main() {
+  println(BracketMatcher(readLine()))
+}
