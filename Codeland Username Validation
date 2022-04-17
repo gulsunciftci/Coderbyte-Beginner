@@ -1,0 +1,24 @@
+fun CodelandUsernameValidation(str: String): String {
+var charPos = 0
+    if (str.length in 4..25){
+        if (str[0].isLetter()){
+            if (str[str.length - 1] != '_'){
+                while (charPos < str.length){
+                    if (str[charPos].isLetterOrDigit() || str[charPos] == '_'){
+                        charPos ++
+                    }else{
+                        return "false"
+                    }
+                }
+                return "true"
+            }
+            else return "false"
+        }
+        else return "false"
+    } else return "false"
+  
+}
+
+fun main() {
+  println(CodelandUsernameValidation(readLine()))
+}
