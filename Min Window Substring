@@ -1,0 +1,29 @@
+fun MinWindowSubstring(strArr: Array<String>): String {
+
+  val N = strArr[0]
+  val K = strArr[1]
+  var min = Int.MAX_VALUE
+  var result = ""
+  for (i in N.indices) {
+    val match = StringBuilder(K)
+    for (j in i until N.length) {
+      if (match.toString().contains(N[j].toString())){
+        val index = match.indexOf(N[j].toString())
+        match.replace(index,index+1,"")
+      }
+      if (match.isEmpty()) {
+        if (j - i < min) {
+          min = j - i
+          result = N.substring(i, j + 1)
+        }
+        break
+      }
+    }
+  }
+  return result
+  
+}
+
+fun main() {
+  println(MinWindowSubstring(readLine()))
+}
