@@ -1,0 +1,31 @@
+fun TreeConstructor(strArr: Array<String>): String {
+  if (strArr.size == 1) {
+    return "true"
+  }
+  val map = mutableMapOf<Int, MutableList<Int>>()
+  val set = mutableSetOf<Int>()
+  val values = mutableSetOf<Int>()
+  strArr.forEach {
+      val split = it.replace("(", "").replace(")", "").split(",")
+      val nodde = Integer.valueOf(split[0].trim())
+      val parent = Integer.valueOf(split[1].trim())
+      set.add(nodde)
+      values.add(parent)
+      if (map.containsKey(parent)) {
+        map[parent]!!.add(nodde)
+        if (map[parent]!!.size > 2) {
+          return "false"
+        }
+      } else {
+        val list = mutableListOf(nodde)
+        map[parent] = list
+      }
+  }
+  val nodesCount = set.size
+  val roots = values.minus(set)
+  return if ((nodesCount == strArr.size && roots.size == 1)) "true" else "false"
+}
+
+fun main() {
+  println(TreeConstructor(readLine()))
+}
